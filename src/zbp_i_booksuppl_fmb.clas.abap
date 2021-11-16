@@ -1,0 +1,5 @@
+CLASS zbp_i_booksuppl_fmb DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF z_i_travel_fmb.
+ENDCLASS.
+
+CLASS zbp_i_booksuppl_fmb IMPLEMENTATION.
+ENDCLASS.

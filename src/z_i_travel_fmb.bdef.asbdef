@@ -38,49 +38,93 @@ mapping for ztravel_fmb corresponding;
 define behavior for z_i_booking_fmb alias Booking
 implementation in class zbp_i_booking_fmb unique
 persistent table zbooking_fmb
-
-lock dependent by _Travel  // ( travel_id = travel_id )
-authorization dependent by _Travel // ( travel_id = travel_id )
+lock dependent by _Travel
+authorization dependent by _Travel
 etag master last_change_at
 {
-
 // static fields control
 field ( readonly ) travel_id;
-field ( mandatory ) carrier_id, connection_id,
-flight_date, booking_status;
+field ( mandatory : create ) booking_id, carrier_id,
+connection_id, flight_date, booking_status;
 update;
 delete;
-
 //validations
-validation validateStatus on save { field
-booking_status; }
-
+validation validateStatus on save
+{ create; field booking_status; }
 //determinations
 determination calculateTotalFlightPrice on modify
 { field flight_price, currency_code; }
-
-association _BookingSupplement { create; }
-
+association _BookingSupplement { create ( features: instance ); }
 association _Travel { }
-
 mapping for zbooking_fmb corresponding;
 }
 
 define behavior for z_i_booksuppl_fmb alias Supplement
 implementation in class zbp_i_booksuppl_fmb unique
 with unmanaged save
-lock dependent by _Travel // ( travel_id = travel_id )
-authorization dependent by _Travel // ( travel_id = travel_id )
+lock dependent by _Travel
+authorization dependent by _Travel
 etag master last_changed_at
 {
 field ( readonly ) travel_id, booking_id;
-field ( mandatory ) supplement_id, price;
+field ( mandatory : create ) supplement_id, price;
 update;
 delete;
+
 //determinations
 determination calculateTotalSupplPrice on modify {
 field price, currency; }
-mapping for zlog_fmb corresponding;
-
+mapping for zbooksuppl_fmb corresponding;
 association _Travel { }
 }
+
+
+//define behavior for z_i_booking_fmb alias Booking
+//implementation in class zbp_i_booking_fmb unique
+//persistent table zbooking_fmb
+//
+//lock dependent by _Travel  // ( travel_id = travel_id )
+//authorization dependent by _Travel // ( travel_id = travel_id )
+//etag master last_change_at
+//{
+//
+//// static fields control
+//field ( readonly ) travel_id;
+//field ( mandatory ) carrier_id, connection_id,
+//flight_date, booking_status;
+//update;
+//delete;
+//
+////validations
+//validation validateStatus on save { field
+//booking_status; }
+//
+////determinations
+//determination calculateTotalFlightPrice on modify
+//{ field flight_price, currency_code; }
+//
+//association _BookingSupplement { create; }
+//
+//association _Travel { }
+//
+//mapping for zbooking_fmb corresponding;
+//}
+
+//define behavior for z_i_booksuppl_fmb alias Supplement
+//implementation in class zbp_i_booksuppl_fmb unique
+//with unmanaged save
+//lock dependent by _Travel // ( travel_id = travel_id )
+//authorization dependent by _Travel // ( travel_id = travel_id )
+//etag master last_changed_at
+//{
+//field ( readonly ) travel_id, booking_id;
+//field ( mandatory ) supplement_id, price;
+//update;
+//delete;
+////determinations
+//determination calculateTotalSupplPrice on modify {
+//field price, currency; }
+//mapping for zlog_fmb corresponding;
+//
+//association _Travel { }
+//}

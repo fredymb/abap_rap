@@ -22,6 +22,11 @@ currency_code as CurrencyCode,
 description as Description,
 overall_status as TravelStatus,
 last_changed_at as LastChangedAt,
+@Semantics.amount.currencyCode:
+'CurrencyCode'
+@ObjectModel.virtualElementCalculatedBy:
+'ABAP:ZCL_VIRT_ELEM_FMB'
+virtual DiscountPrice : /dmo/total_price,
 /* Associations */
 _Agency,
 _Booking : redirected to composition child z_c_booking_fmb,

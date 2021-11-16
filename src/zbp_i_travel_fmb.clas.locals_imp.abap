@@ -81,7 +81,7 @@ CLASS lhc_Travel IMPLEMENTATION.
 
         APPEND VALUE #( %key = ls_travel_result-%key
         %msg = new_message( id =
-        'Z_MC_TRAVEL_fmb'
+        'Z_MC_TRAVEL_FMB'
         number =
         '005'
         v1 =
