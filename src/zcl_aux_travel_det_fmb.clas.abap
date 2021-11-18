@@ -39,10 +39,8 @@ READ ENTITIES OF z_i_travel_fmb
 ENTITY Travel BY \_Booking
 FROM VALUE #( FOR lv_travel_id IN it_travel_id (
 travel_id = lv_travel_id
-%control-flight_price =
-if_abap_behv=>mk-on
-%control-currency_code =
-if_abap_behv=>mk-on ) )
+%control-flight_price = if_abap_behv=>mk-on
+%control-currency_code = if_abap_behv=>mk-on ) )
 RESULT DATA(lt_read_booking).
 
 LOOP AT lt_read_booking INTO DATA(ls_booking)
@@ -91,7 +89,7 @@ if_abap_behv=>mk-on
 if_abap_behv=>mk-on ) )
 RESULT DATA(lt_read_supplements).
 
-LOOP AT lt_read_supplements INTO DATA(ls_booking_suppl)
+LOOP AT lt_read_supplements INTO DATA(ls_booking_suppl) where currency <> space
 GROUP BY ls_booking_suppl-travel_id INTO lv_travel_key.
 
 ASSIGN lt_read_travel[ KEY entity COMPONENTS travel_id = lv_travel_key ] TO <ls_travel>.
@@ -134,6 +132,7 @@ total_price =
 ls_travel_bo-total_price
 %control-total_price =
 if_abap_behv=>mk-on ) ).
+
 ENDMETHOD.
 
 ENDCLASS.
