@@ -1,0 +1,4 @@
+@EndUserText.label: 'HCM - Master Data'
+define service ZSD_HCM_MASTER_FMB {
+  expose z_c_hcm_master_fmb;
+}

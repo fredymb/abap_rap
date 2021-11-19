@@ -1,0 +1,12 @@
+unmanaged implementation in class zbp_i_hcm_master_fmb unique;
+define behavior for z_i_hcm_master_fmb alias HCMMaster
+//late numbering
+//lock master
+//etag master <field_name>
+{
+  field ( readonly ) e_number;
+  field ( mandatory : create ) e_name;
+  create;
+  update;
+  delete;
+}

@@ -1,0 +1,5 @@
+CLASS zbp_i_hcm_master_fmb DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF z_i_hcm_master_fmb.
+ENDCLASS.
+
+CLASS zbp_i_hcm_master_fmb IMPLEMENTATION.
+ENDCLASS.
