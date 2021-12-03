@@ -1,0 +1,4 @@
+@EndUserText.label: 'Employees'
+define service Zsd_employee_fmb {
+  expose Z_C_EMPLOYEE_FMB as Employees;
+}

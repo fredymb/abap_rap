@@ -1,0 +1,5 @@
+CLASS zbp_i_employee_fmb DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF z_i_employee_fmb.
+ENDCLASS.
+
+CLASS zbp_i_employee_fmb IMPLEMENTATION.
+ENDCLASS.

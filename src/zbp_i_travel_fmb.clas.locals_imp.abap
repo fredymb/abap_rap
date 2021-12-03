@@ -295,6 +295,10 @@ CLASS lhc_Travel IMPLEMENTATION.
 * FAILED failed
 * REPORTED reported.
 
+data lv_copies type zde_copies.
+
+do.
+
     data lt_create_travel type table for create z_i_travel_fmb\\Travel.
 
     SELECT MAX( travel_id ) FROM ztravel_fmb
@@ -303,7 +307,7 @@ CLASS lhc_Travel IMPLEMENTATION.
 
     lt_create_travel = VALUE #( FOR create_row IN lt_entity_travel INDEX INTO idx
     ( travel_id =
-    lv_travel_id + idx
+    lv_travel_id + idx + lv_copies
     agency_id =
     create_row-agency_id
     customer_id =
@@ -337,6 +341,15 @@ CLASS lhc_Travel IMPLEMENTATION.
                     ( %cid_ref = keys[ idx ]-%cid_ref
                       %key = keys[ idx ]-%key
                       %param = CORRESPONDING #( result_row ) ) ).
+
+add 1 to lv_copies.
+read table keys assigning FIELD-SYMBOL(<keys>) index 1.
+if sy-subrc = 0 and lv_copies >= <keys>-%param-copies.
+exit.
+endif.
+
+enddo.
+
 
   ENDMETHOD.
 
