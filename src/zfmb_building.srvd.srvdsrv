@@ -1,0 +1,4 @@
+@EndUserText.label: 'Building Service'
+define service zfmb_building {
+  expose zfmb_c_buildings as Buildings;
+}

@@ -1,0 +1,9 @@
+projection;
+strict;
+
+define behavior for zfmb_c_buildings alias Building
+{
+  use create;
+  use update;
+  use delete;
+}

@@ -4,9 +4,9 @@
   <asx:values>
    <SRVB>
     <METADATA>
-     <NAME>ZSB_HCM_MASTER_FMB</NAME>
+     <NAME>ZFMB_BUILDING</NAME>
      <TYPE>SRVB/SVB</TYPE>
-     <DESCRIPTION>HCM - Master Data</DESCRIPTION>
+     <DESCRIPTION>Building Service</DESCRIPTION>
      <LANGUAGE>EN</LANGUAGE>
      <LINKS>
       <item>
@@ -15,7 +15,7 @@
        <TITLE>Historic versions</TITLE>
       </item>
       <item>
-       <HREF>/sap/bc/adt/businessservices/odatav2/ZSB_HCM_MASTER_FMB</HREF>
+       <HREF>/sap/bc/adt/businessservices/odatav2/ZFMB_BUILDING</HREF>
        <REL>http://www.sap.com/categories/odatav2</REL>
        <TYPE>application/vnd.sap.adt.businessservices.odatav2.v2+xml</TYPE>
        <TITLE>ODATAV2</TITLE>
@@ -43,26 +43,27 @@
     </METADATA>
     <CONTENT>
      <BIND_TYPE_IMPL>
-      <NAME>ZSB_HCM_MASTER_FMB</NAME>
+      <NAME>ZFMB_BUILDING</NAME>
      </BIND_TYPE_IMPL>
      <BIND_TYPE>ODATA</BIND_TYPE>
      <BIND_TYPE_VERSION>V2</BIND_TYPE_VERSION>
      <SERVICES>
       <item>
-       <SERVICE_NAME>ZSB_HCM_MASTER_FMB</SERVICE_NAME>
+       <SERVICE_NAME>ZFMB_BUILDING</SERVICE_NAME>
        <SERVICE_CONTENT>
         <item>
          <SERVICE_VERSION>0001</SERVICE_VERSION>
          <SRVD_REF>
-          <URI>/sap/bc/adt/ddic/srvd/sources/zsd_hcm_master_fmb</URI>
+          <URI>/sap/bc/adt/ddic/srvd/sources/zfmb_building</URI>
           <TYPE>SRVD/SRV</TYPE>
-          <NAME>ZSD_HCM_MASTER_FMB</NAME>
+          <NAME>ZFMB_BUILDING</NAME>
          </SRVD_REF>
         </item>
        </SERVICE_CONTENT>
       </item>
      </SERVICES>
     </CONTENT>
+    <PUBLISHED>true</PUBLISHED>
     <BINDING_CREATED>true</BINDING_CREATED>
    </SRVB>
   </asx:values>
