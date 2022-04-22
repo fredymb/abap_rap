@@ -4,9 +4,9 @@
   <asx:values>
    <SRVB>
     <METADATA>
-     <NAME>ZSB_ATRAVEL_FMB</NAME>
+     <NAME>ZFMB_SB_SO_84</NAME>
      <TYPE>SRVB/SVB</TYPE>
-     <DESCRIPTION>Travel Aproval</DESCRIPTION>
+     <DESCRIPTION>Sales order</DESCRIPTION>
      <LANGUAGE>EN</LANGUAGE>
      <LINKS>
       <item>
@@ -15,7 +15,7 @@
        <TITLE>Historic versions</TITLE>
       </item>
       <item>
-       <HREF>/sap/bc/adt/businessservices/odatav2/ZSB_ATRAVEL_FMB</HREF>
+       <HREF>/sap/bc/adt/businessservices/odatav2/ZFMB_SB_SO_84</HREF>
        <REL>http://www.sap.com/categories/odatav2</REL>
        <TYPE>application/vnd.sap.adt.businessservices.odatav2.v2+xml</TYPE>
        <TITLE>ODATAV2</TITLE>
@@ -43,21 +43,21 @@
     </METADATA>
     <CONTENT>
      <BIND_TYPE_IMPL>
-      <NAME>ZSB_ATRAVEL_FMB</NAME>
+      <NAME>ZFMB_SB_SO_84</NAME>
      </BIND_TYPE_IMPL>
      <BIND_TYPE>ODATA</BIND_TYPE>
      <BIND_TYPE_VERSION>V2</BIND_TYPE_VERSION>
      <SERVICES>
       <item>
-       <SERVICE_NAME>ZSB_ATRAVEL_FMB</SERVICE_NAME>
+       <SERVICE_NAME>ZFMB_SB_SO_84</SERVICE_NAME>
        <SERVICE_CONTENT>
         <item>
          <SERVICE_VERSION>0001</SERVICE_VERSION>
          <RELEASE_STATE>NOT_RELEASED</RELEASE_STATE>
          <SRVD_REF>
-          <URI>/sap/bc/adt/ddic/srvd/sources/zsd_atravel_fmb</URI>
+          <URI>/sap/bc/adt/ddic/srvd/sources/zfmb_sd_so_84</URI>
           <TYPE>SRVD/SRV</TYPE>
-          <NAME>ZSD_ATRAVEL_FMB</NAME>
+          <NAME>ZFMB_SD_SO_84</NAME>
          </SRVD_REF>
         </item>
        </SERVICE_CONTENT>

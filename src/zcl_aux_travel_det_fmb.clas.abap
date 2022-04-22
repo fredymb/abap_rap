@@ -17,7 +17,10 @@ CLASS-METHODS calculate_price IMPORTING it_travel_id TYPE tt_travel_id.
   PRIVATE SECTION.
 ENDCLASS.
 
-CLASS zcl_aux_travel_det_fmb IMPLEMENTATION.
+
+
+CLASS ZCL_AUX_TRAVEL_DET_FMB IMPLEMENTATION.
+
 
 METHOD calculate_price.
 
@@ -134,6 +137,4 @@ ls_travel_bo-total_price
 if_abap_behv=>mk-on ) ).
 
 ENDMETHOD.
-
 ENDCLASS.
-

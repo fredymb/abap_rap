@@ -11,7 +11,8 @@ ENDCLASS.
 
 
 
-CLASS zcl_virt_elem_fmb IMPLEMENTATION.
+CLASS ZCL_VIRT_ELEM_FMB IMPLEMENTATION.
+
 
   METHOD if_sadl_exit_calc_element_read~get_calculation_info.
     IF iv_entity = 'Z_C_TRAVEL_FMB'.
@@ -24,6 +25,7 @@ CLASS zcl_virt_elem_fmb IMPLEMENTATION.
       ENDLOOP.
     ENDIF.
   ENDMETHOD.
+
 
   METHOD if_sadl_exit_calc_element_read~calculate.
 
@@ -38,5 +40,4 @@ lt_original_data = CORRESPONDING #( it_original_data ).
     ENDLOOP.
     ct_calculated_data = CORRESPONDING #( lt_original_data ).
   ENDMETHOD.
-
 ENDCLASS.

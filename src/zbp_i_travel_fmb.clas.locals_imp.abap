@@ -150,7 +150,7 @@ CLASS lhc_Travel IMPLEMENTATION.
 
   METHOD get_authorizations.
 
-    DATA(lv_auth) = COND #( WHEN cl_abap_context_info=>get_user_technical_name( ) EQ  'CB0000000099'
+    DATA(lv_auth) = COND #( WHEN cl_abap_context_info=>get_user_technical_name( ) EQ 'CB9980001141' " 'CB0000000099'
                             THEN if_abap_behv=>auth-allowed
                             ELSE if_abap_behv=>auth-unauthorized ).
 

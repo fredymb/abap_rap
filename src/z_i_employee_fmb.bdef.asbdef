@@ -12,4 +12,5 @@ etag master lchg_date_time
   create;
   update;
   delete;
+  action CompleteEMP result [1] entity z_i_employee_fmb;
 }

@@ -1,0 +1,5 @@
+@EndUserText.label: 'Sales order'
+define service ZFMB_SD_SO_84 {
+  expose ZFMB_SO_84;
+  expose ZFMB_SOITEMS_84;
+}

@@ -12,7 +12,7 @@ CLASS lsc_zfmb_i_buildings IMPLEMENTATION.
 *  using number range object
   METHOD adjust_numbers.
 
-    DATA lv_bldg_num TYPE n LENGTH 5.
+    DATA lv_bldg_num TYPE n LENGTH 10.
 
     LOOP AT mapped-building ASSIGNING FIELD-SYMBOL(<map_building>) WHERE %key-BuildingId IS INITIAL .
       TRY.

@@ -6,4 +6,5 @@ use etag
   use create;
   use update;
   use delete;
+  use action CompleteEMP result entity z_c_employee_fmb;
 }

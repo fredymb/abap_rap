@@ -17,7 +17,9 @@ annotate view Z_C_EMPLOYEE_FMB with
   @Search.defaultSearchElement: true
   @UI: {
   lineItem: [{ position: 10, label: 'Employee
-Number', importance: #HIGH }],
+Number', importance: #HIGH },
+{ type: #FOR_ACTION, dataAction: 'CompleteEMP', label: 'Complete Employee', position: 10 }
+],
   identification: [{ position: 10, label:
   'Employee Number' }] }
   EmployeeNumber;
