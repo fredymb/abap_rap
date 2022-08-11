@@ -27,6 +27,7 @@ last_changed_at as LastChangedAt,
 @ObjectModel.virtualElementCalculatedBy:
 'ABAP:ZCL_VIRT_ELEM_FMB'
 virtual DiscountPrice : /dmo/total_price,
+Percent as Percent,
 /* Associations */
 _Agency,
 _Booking : redirected to composition child z_c_booking_fmb,

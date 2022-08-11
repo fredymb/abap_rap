@@ -36,6 +36,11 @@ created_at,
 last_changed_by,
 @Semantics.systemDateTime.lastChangedAt: true
 last_changed_at,
+case 
+when total_price = 0 then 0
+else 
+division(cast(booking_fee as abap.dec(10,2)) * 10 , cast(total_price as abap.dec(10,2)), 4) * 100
+end as Percent,
 _Booking,
 _Agency,
 _Customer,

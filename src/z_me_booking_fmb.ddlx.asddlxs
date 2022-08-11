@@ -9,6 +9,15 @@ type: #STANDARD,
 value: 'BookingID' }
 }
 }
+
+@UI.chart: [{
+    title: 'Flight Price',
+    description: 'Flight Price' ,
+    chartType: #COLUMN,
+    dimensions: ['CarrierID', 'ConnectionID'],
+    measures: ['FlightPrice']
+}]
+
 annotate view z_c_booking_fmb with
 {
   @UI.facet: [{ id: 'Booking',

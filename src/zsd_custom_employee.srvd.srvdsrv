@@ -1,0 +1,4 @@
+@EndUserText.label: 'Custom Employee'
+define service ZSD_CUSTOM_EMPLOYEE {
+  expose Z_I_CUSTOM_EMPLOYEE as CustomEmployee;
+}

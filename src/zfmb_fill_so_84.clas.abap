@@ -11,7 +11,9 @@ ENDCLASS.
 
 
 
-CLASS zfmb_fill_so_84 IMPLEMENTATION.
+CLASS ZFMB_FILL_SO_84 IMPLEMENTATION.
+
+
   METHOD if_oo_adt_classrun~main.
 
  DATA: lt_vbak TYPE STANDARD TABLE OF zfmb_vbak,
@@ -84,5 +86,4 @@ CLASS zfmb_fill_so_84 IMPLEMENTATION.
        out->write( 'DONE!' ).
 
   ENDMETHOD.
-
 ENDCLASS.

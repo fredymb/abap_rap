@@ -9,6 +9,17 @@ type: #STANDARD,
 value: 'TravelID' }
 }
 }
+
+@UI.chart: [{ qualifier: 'chrtRadial' ,
+              chartType:         #DONUT ,
+              measures:          ['Percent'],
+              measureAttributes: [{
+                    measure:     'Percent' ,
+                    role: #AXIS_1,
+                    asDataPoint: true
+                    }]
+             }]
+             
 annotate view z_c_travel_fmb with
 {
 @UI.facet: [{ id: 'Travel',
@@ -21,7 +32,15 @@ purpose: #STANDARD,
 type: #LINEITEM_REFERENCE,
 label: 'Booking',
 position: 20,targetElement:
-'_Booking' }]
+'_Booking' },
+
+{ id : 'idChart' ,
+  type: #CHART_REFERENCE ,
+  label : 'Chart',
+  targetElement: '_Booking',
+  position: 30 }
+
+]
 @UI: {
 lineItem: [{
 position: 10,
@@ -49,7 +68,9 @@ CustomerID;
 @UI: {
 lineItem: [ { position: 40, importance:
 #MEDIUM } ],
-identification: [ { position: 40 } ] }
+identification: [ { position: 40 } ],
+selectionField: [ { position: 40 } ] }
+@Consumption.filter.selectionType: #INTERVAL
 BeginDate;
 @UI: {
 lineItem: [ { position: 41, importance: #MEDIUM }
@@ -65,6 +86,25 @@ lineItem: [ { position: 43, importance: #MEDIUM }
 identification: [ { position: 43, label: 'Total
 Price' } ] }
 TotalPrice;
+
+
+@UI: {
+lineItem: [ { position: 35,
+              type: #AS_CHART ,
+              valueQualifier: 'chrtRadial',
+              label: 'Price Percent %',     
+               importance: #MEDIUM }
+],
+identification: [ { position: 35, label: 'Price Percent %
+' } ] }
+
+@UI.dataPoint: {  criticalityCalculation:{
+                      improvementDirection: #MAXIMIZE ,
+                      deviationRangeLowValue: 10.0 ,
+                      toleranceRangeLowValue: 20.0 } }
+Percent;
+
+
 @Consumption.valueHelpDefinition: [{entity: {name:
 'I_Currency', element: 'Currency' }}]
 CurrencyCode;

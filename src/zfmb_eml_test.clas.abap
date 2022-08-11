@@ -12,7 +12,8 @@ ENDCLASS.
 
 
 
-CLASS zfmb_eml_test IMPLEMENTATION.
+CLASS ZFMB_EML_TEST IMPLEMENTATION.
+
 
   METHOD if_oo_adt_classrun~main.
 
@@ -126,5 +127,4 @@ REPORTED reported.
 
 
   ENDMETHOD.
-
 ENDCLASS.

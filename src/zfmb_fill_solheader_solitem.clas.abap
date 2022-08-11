@@ -10,7 +10,9 @@ CLASS zfmb_fill_solheader_solitem DEFINITION
 ENDCLASS.
 
 
-CLASS zfmb_fill_solheader_solitem IMPLEMENTATION.
+
+CLASS ZFMB_FILL_SOLHEADER_SOLITEM IMPLEMENTATION.
+
 
   METHOD if_oo_adt_classrun~main.
 
@@ -99,5 +101,4 @@ out->write( 'DONE!' ).
 
 
   ENDMETHOD.
-
 ENDCLASS.
