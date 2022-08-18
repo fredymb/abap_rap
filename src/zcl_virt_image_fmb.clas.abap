@@ -15,6 +15,12 @@ CLASS zcl_virt_image_fmb IMPLEMENTATION.
 
 
   METHOD if_sadl_exit_calc_element_read~get_calculation_info.
+  LOOP AT it_requested_calc_elements ASSIGNING FIELD-SYMBOL(<fs_calc_element>).
+  CASE <fs_calc_element>.
+        WHEN 'AGENCYINITS'.
+        APPEND 'AGENCYNAME' TO et_requested_orig_elements.
+  ENDCASE.
+ ENDLOOP.
 
   ENDMETHOD.
 
@@ -27,6 +33,7 @@ lt_original_data = CORRESPONDING #( it_original_data ).
 
     LOOP AT lt_original_data ASSIGNING FIELD-SYMBOL(<ls_original_data>).
       <ls_original_data>-ImageURL =  'https://image.shutterstock.com/image-vector/travel-agency-tour-operator-flat-600w-1323177512.jpg'.
+      <ls_original_data>-AgencyInits = <ls_original_data>-AgencyName(2).
     ENDLOOP.
     ct_calculated_data = CORRESPONDING #( lt_original_data ).
   ENDMETHOD.
