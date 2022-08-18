@@ -2,6 +2,7 @@
 @Search.searchable: true
 @UI: {
 headerInfo: {
+imageUrl: 'ImageURL',
 typeName: 'Travel',
 typeNamePlural: 'Travels',
 title: {

@@ -28,6 +28,8 @@ last_changed_at as LastChangedAt,
 'ABAP:ZCL_VIRT_ELEM_FMB'
 virtual DiscountPrice : /dmo/total_price,
 Percent as Percent,
+@ObjectModel.virtualElementCalculatedBy: 'ABAP:ZCL_VIRT_IMAGE_FMB'
+virtual ImageURL: abap.string( 256 ),
 /* Associations */
 _Agency,
 _Booking : redirected to composition child z_c_booking_fmb,
