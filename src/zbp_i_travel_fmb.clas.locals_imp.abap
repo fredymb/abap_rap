@@ -350,7 +350,6 @@ endif.
 
 enddo.
 
-
   ENDMETHOD.
 
   METHOD get_features.
@@ -432,6 +431,15 @@ APPEND <ls_travel_fmb> TO lt_travel_fmb_u.
 ENDIF.
 ENDIF.
 ENDLOOP.
+
+" Lanzar evento
+ raise entity event z_i_travel_fmb~createTravelByTemplate2
+        from value #(
+          for travel in create-travel (
+              copies = '1'
+            )
+          ).
+
 ENDIF.
 
 IF NOT update-travel IS INITIAL.

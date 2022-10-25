@@ -12,6 +12,7 @@
     <KEYKIND>N</KEYKIND>
     <DDTEXT>Supplement</DDTEXT>
     <TYPELEN>000001</TYPELEN>
+    <ABAP_LANGUAGE_VERSION>5</ABAP_LANGUAGE_VERSION>
    </DD40V>
   </asx:values>
  </asx:abap>

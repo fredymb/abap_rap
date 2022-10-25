@@ -1,10 +1,10 @@
-CLASS zfmb_fill_so_84 DEFINITION
-  PUBLIC
-  FINAL
-  CREATE PUBLIC .
+class ZFMB_FILL_SO_84 definition
+  public
+  create private .
 
-  PUBLIC SECTION.
-  INTERFACES if_oo_adt_classrun.
+public section.
+
+  interfaces IF_OO_ADT_CLASSRUN .
   PROTECTED SECTION.
   PRIVATE SECTION.
 ENDCLASS.

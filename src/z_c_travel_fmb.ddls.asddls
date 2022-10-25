@@ -32,6 +32,9 @@ Percent as Percent,
 virtual ImageURL: abap.string( 256 ),
 @ObjectModel.virtualElementCalculatedBy: 'ABAP:ZCL_VIRT_IMAGE_FMB'
 virtual AgencyInits: abap.char( 2 ),
+Attachment,
+MimeType,
+Filename,
 /* Associations */
 _Agency,
 _Booking : redirected to composition child z_c_booking_fmb,

@@ -33,6 +33,7 @@ etag master last_changed_at
   action ( features : instance ) rejectTravel result [1]
   $self;
   action createTravelByTemplate parameter Z_A_COPIES_FMB result [1] $self;
+  event createTravelByTemplate2 parameter Z_A_COPIES_FMB;
   association _Booking { create ( features : instance ); }
   mapping for ztravel_fmb corresponding;
 }

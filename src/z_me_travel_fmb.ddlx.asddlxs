@@ -87,7 +87,18 @@ lineItem: [ { position: 43, importance: #MEDIUM }
 identification: [ { position: 43, label: 'Total
 Price' } ] }
 TotalPrice;
+@UI: {
+lineItem: [ { position: 10, importance: #MEDIUM }
+],
+identification: [ { position: 10, label: 'Attachment
+' } ] }
+Attachment;
 
+@UI.hidden: true
+MimeType;
+
+@UI.hidden: true
+Filename;
 
 @UI: {
 lineItem: [ { position: 35,

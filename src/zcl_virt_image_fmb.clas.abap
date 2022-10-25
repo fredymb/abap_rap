@@ -11,7 +11,7 @@ ENDCLASS.
 
 
 
-CLASS zcl_virt_image_fmb IMPLEMENTATION.
+CLASS ZCL_VIRT_IMAGE_FMB IMPLEMENTATION.
 
 
   METHOD if_sadl_exit_calc_element_read~get_calculation_info.

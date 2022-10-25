@@ -41,6 +41,14 @@ when total_price = 0 then 0
 else 
 division(cast(booking_fee as abap.dec(10,2)) * 10 , cast(total_price as abap.dec(10,2)), 4) * 100
 end as Percent,
+@Semantics.largeObject:
+{ mimeType: 'MimeType',
+  fileName: 'Filename',
+  contentDispositionPreference: #INLINE }
+attachment            as Attachment,
+@Semantics.mimeType: true
+mimetype              as MimeType,
+filename              as Filename,
 _Booking,
 _Agency,
 _Customer,

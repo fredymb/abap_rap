@@ -1,11 +1,10 @@
-CLASS zfmb_eml_test DEFINITION
-  PUBLIC
-  FINAL
-  CREATE PUBLIC .
+class ZFMB_EML_TEST definition
+  public
+  create private .
 
-  PUBLIC SECTION.
-    INTERFACES if_oo_adt_classrun.
+public section.
 
+  interfaces IF_OO_ADT_CLASSRUN .
   PROTECTED SECTION.
   PRIVATE SECTION.
 ENDCLASS.
