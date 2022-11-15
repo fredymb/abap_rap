@@ -16,7 +16,7 @@ etag master last_changed_at
   // dynamic field control
   field ( features : instance ) travel_id, overall_status;
   create;
-  update;
+  update ( precheck );
   delete;
   // validations
   validation validateCustomer on save
@@ -27,6 +27,8 @@ etag master last_changed_at
     begin_date, end_date; }
   validation validateStatus on save
   { create; field overall_status; }
+  determination completeDescription on modify
+  { field agency_id; }
   //actions
   action ( features : instance ) acceptTravel result [1]
   $self;

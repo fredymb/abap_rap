@@ -1,0 +1,21 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "Travel Event",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "producerNamespace": "zfmb",
+  "producer": "PCA83FE8485214F3B953E1125980D6641",
+  "producerVersion": "0001",
+  "boName": "Z_I_TRAVEL_FMB",
+  "boOperation": "createTravelByTemp",
+  "producerType": "zfmb.ZxIxTRAVELxFMB.createTravelByTemp.v*",
+  "events": [
+    {
+      "eventVersion": "0001",
+      "entityName": "Z_I_TRAVEL_FMB",
+      "entityEventName": "CREATETRAVELBYTEMPLATE2"
+    }
+  ]
+}

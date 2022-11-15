@@ -21,6 +21,10 @@ CLASS lhc_Travel DEFINITION INHERITING FROM cl_abap_behavior_handler.
     METHODS get_authorizations FOR AUTHORIZATION IMPORTING
     keys REQUEST requested_authorizations FOR Travel RESULT
     result.
+    METHODS completedescription FOR DETERMINE ON MODIFY
+      IMPORTING keys FOR travel~completedescription.
+    METHODS precheck_update FOR PRECHECK
+      IMPORTING entities FOR UPDATE travel.
 
   ENDCLASS.
 
@@ -373,6 +377,97 @@ enddo.
                             ls_travel-overall_status = 'X'
                             THEN if_abap_behv=>fc-o-disabled
                             ELSE if_abap_behv=>fc-o-enabled ) ) ).
+
+  ENDMETHOD.
+
+  METHOD completeDescription.
+
+  READ ENTITIES OF z_i_travel_fmb
+    ENTITY Travel
+    FIELDS ( description )
+    WITH CORRESPONDING #( keys )
+    RESULT DATA(lt_entity_travel).
+
+   LOOP AT lt_entity_travel ASSIGNING FIELD-SYMBOL(<fs_entity_travel>).
+    IF <fs_entity_travel>-agency_id = '070003'.
+     <fs_entity_travel>-description = 'New Vacation'.
+    MODIFY ENTITIES OF z_i_travel_fmb IN LOCAL MODE
+    ENTITY Travel
+    UPDATE FIELDS ( description )
+    WITH VALUE #( ( %key = <fs_entity_travel>-%key
+                    %tky = <fs_entity_travel>-%tky
+                    %pky = <fs_entity_travel>-%pky
+                    travel_id = <fs_entity_travel>-travel_id
+                    description = <fs_entity_travel>-description
+                    %control-description = if_abap_behv=>mk-on ) ) reported data(reportedmodify).
+    ENDIF.
+   ENDLOOP.
+
+*append initial line to  reported-travel ASSIGNING FIELD-SYMBOL(<fs_reported_travel>).
+*<fs_reported_travel>-travel_id = <fs_entity_travel>-travel_id.
+*<fs_reported_travel>-%update = if_abap_behv=>mk-on.
+*<fs_reported_travel>-%tky = <fs_entity_travel>-%tky.
+*<fs_reported_travel>-%pky = <fs_entity_travel>-%pky.
+.
+*   MODIFY entities of z_i_travel_fmb in local mode
+*    ENTITY Travel
+*    UPDATE FROM VALUE #( FOR ls_entity_travel IN lt_entity_travel
+*                                  ( %key = ls_entity_travel-%key
+*                                    %tky = ls_entity_travel-%tky
+*                                    %pky = ls_entity_travel-%pky
+*                                    %data = ls_entity_travel-%data
+*                                    travel_id = ls_entity_travel-travel_id
+*                                   "%is_draft = ls_entity_travel- -%is_draft
+*                                    description = 'New Vacation' "ls_entity_travel-description
+*                                    %control-description = cl_abap_behv=>flag_changed  ) ) reported data(reportedmodify). " if_abap_behv=>mk-on
+
+  ENDMETHOD.
+
+  METHOD precheck_update.
+
+    LOOP AT entities ASSIGNING FIELD-SYMBOL(<lfs_entity>).
+
+  " 01 = Value is updated / changed, 00 = Value is not changed
+
+  CHECK <lfs_entity>-%control-agency_id = '01' OR <lfs_entity>-%control-description = '01'.
+
+  READ ENTITIES OF z_i_travel_fmb IN LOCAL MODE
+    ENTITY Travel
+    FIELDS ( agency_id description )
+    WITH VALUE #( ( %key = <lfs_entity>-%key ) )
+    RESULT DATA(lt_travel).
+
+    IF sy-subrc = 0.
+
+    READ TABLE lt_travel ASSIGNING FIELD-SYMBOL(<lfs_db_travel>) INDEX 1.
+    IF sy-subrc = 0.
+     <lfs_db_travel>-agency_id = COND #( WHEN <lfs_entity>-%control-agency_id = '01' THEN
+                                              <lfs_entity>-agency_id ELSE <lfs_db_travel>-agency_id ).
+     <lfs_db_travel>-description = COND #( WHEN <lfs_entity>-%control-description = '01' THEN
+                                              <lfs_entity>-description ELSE <lfs_db_travel>-agency_id ).
+
+     if <lfs_db_travel>-agency_id =  '070003'.
+
+     IF <lfs_db_travel>-description <> 'New Vacation'.
+
+     append value #(  %tky = <lfs_entity>-%tky )  to failed-travel.
+
+     append value #(   %tky = <lfs_entity>-%tky
+                        %msg = new_message_with_text( severity = if_abap_behv_message=>severity-error
+                                                      text = 'Invalid description')
+                          ) to reported-travel.
+
+     ENDIF.
+
+    ENDIF.
+
+
+    ENDIF.
+
+    ENDIF.
+
+
+  ENDLOOP.
 
   ENDMETHOD.
 

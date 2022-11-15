@@ -26,7 +26,7 @@ ENDIF.
 
   METHOD validateStatus.
 
-    READ ENTITY z_i_travel_fmb\\Booking
+  READ ENTITY z_i_travel_fmb\\Booking
   FIELDS ( booking_status )
   WITH VALUE #( FOR <row_key> IN keys ( %key =
   <row_key>-%key ) )
