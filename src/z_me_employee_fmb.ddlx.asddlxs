@@ -4,7 +4,7 @@
 typeNamePlural: 'Employees',
 title: { type: #STANDARD,
 label: 'Employees',
-value: 'EmployeeName'
+value: 'EmployeeName' 
 
 } } }
 annotate view Z_C_EMPLOYEE_FMB with
@@ -13,7 +13,26 @@ annotate view Z_C_EMPLOYEE_FMB with
   purpose: #STANDARD,
   type: #IDENTIFICATION_REFERENCE,
   label: 'Employee',
-  position: 10 }]
+  position: 10 },
+    
+  {
+      purpose: #STANDARD,
+      type: #COLLECTION,
+      label: 'Collection Facet (#OPSection)',
+      id: 'collectionFacetSection'
+    },
+  
+  // Section Employyes2 for FieldGroup Group_Employees
+  { 
+   parentId : 'collectionFacetSection',
+   id: 'Employees2',
+   purpose    :  #STANDARD,
+   label      : 'Fieldgroup Employees',
+   type       : #FIELDGROUP_REFERENCE,
+   targetQualifier: 'Group_Employees'   
+  }
+  
+  ]
   @Search.defaultSearchElement: true
   @UI: {
   lineItem: [{ position: 10, label: 'Employee
@@ -84,7 +103,23 @@ Name' }] }
   lineItem: [{ position: 100, label: 'Manager
 Department', importance: #MEDIUM }],
   identification: [{ position: 100, label: ' Manager
-Department' }] }
+Department' }],
+
+// Field Group Group_Employees
+    fieldGroup: [
+      {
+        qualifier: 'Group_Employees',
+        dataAction: 'CheckEmployee',
+        type: #FOR_ACTION,
+        emphasized: true,
+  //        iconUrl: 'sap-icon://sales-order', //no effect
+  //        criticality: 'CriticalityCode', //no effect
+  //        criticalityRepresentation: #WITH_ICON, //no effect
+        label: 'CheckEmployee'
+      }
+    ]
+
+ }
   ManagerDepartment;
   @UI.hidden: true
   CreatedOn;

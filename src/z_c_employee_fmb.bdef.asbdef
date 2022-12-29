@@ -7,4 +7,5 @@ use etag
   use update;
   use delete;
   use action CompleteEMP result entity z_c_employee_fmb;
+  use action CheckEmployee result entity z_c_employee_fmb;
 }

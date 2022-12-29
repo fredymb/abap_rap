@@ -1,6 +1,8 @@
 @EndUserText.label: 'Employees'
 @AccessControl.authorizationCheck: #CHECK
 @Metadata.allowExtensions: true
+// Search Term #SemanticKey
+@ObjectModel.semanticKey: ['EmployeeName']
 define root view entity Z_C_EMPLOYEE_FMB
   as projection on z_i_employee_fmb
 {

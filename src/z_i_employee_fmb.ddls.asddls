@@ -3,6 +3,8 @@
 @AbapCatalog.preserveKey: true
 @AccessControl.authorizationCheck: #CHECK
 @EndUserText.label: 'Employees'
+// Search Term #SemanticKey
+@ObjectModel.semanticKey: ['e_name']
 define root view z_i_employee_fmb
   as select from zemployee_fmb as Employee
 {

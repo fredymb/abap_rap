@@ -389,7 +389,7 @@ enddo.
     RESULT DATA(lt_entity_travel).
 
    LOOP AT lt_entity_travel ASSIGNING FIELD-SYMBOL(<fs_entity_travel>).
-    IF <fs_entity_travel>-agency_id = '070003'.
+    IF <fs_entity_travel>-agency_id = '070004'.
      <fs_entity_travel>-description = 'New Vacation'.
     MODIFY ENTITIES OF z_i_travel_fmb IN LOCAL MODE
     ENTITY Travel

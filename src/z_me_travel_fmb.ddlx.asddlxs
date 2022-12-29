@@ -40,7 +40,7 @@ position: 20,targetElement:
   label : 'Chart',
   targetElement: '_Booking',
   position: 30 }
-
+  
 ]
 @UI: {
 lineItem: [{
