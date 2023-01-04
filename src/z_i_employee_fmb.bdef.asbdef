@@ -3,6 +3,7 @@ unique;
 with draft;
 define behavior for z_i_employee_fmb alias Employee
 persistent table zemployee_fmb
+with additional save
 draft table zemployee_fmb_d
 lock master
 total etag lchg_date_time
@@ -14,4 +15,5 @@ etag master lchg_date_time
   delete;
   action CompleteEMP result [1] entity z_i_employee_fmb;
   action CheckEmployee result [1] entity z_i_employee_fmb;
-}
+  event EventEmp;
+  }

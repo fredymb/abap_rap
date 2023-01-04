@@ -1,0 +1,21 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "Event binding Employee",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "producerNamespace": "fmb",
+  "producer": "P70CCA8A08451C110A8956288C78F29F6",
+  "producerVersion": "0001",
+  "boName": "Z_I_EMPLOYEE_FMB",
+  "boOperation": "EventEMP",
+  "producerType": "fmb.ZxIxEMPLOYEExFMB.EventEMP.v*",
+  "events": [
+    {
+      "eventVersion": "0001",
+      "entityName": "Z_I_EMPLOYEE_FMB",
+      "entityEventName": "EVENTEMP"
+    }
+  ]
+}
